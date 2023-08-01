@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block  base %}
+
+<div class="container p-5">
+<form class="mx-auto col-6 card shadow-lg p-3 m-5" method="post">
+  {% csrf_token %}
+  <h2>Login</h2>
+
+  {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-info" role="alert">
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+  <hr>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Username</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" name="user_name" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <p>Don't have Account? <a href="/register/">Register</a></p>
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>
+  </div>
+{% endblock %}
